@@ -1,0 +1,27 @@
+{
+	"uni-app": {
+		"scripts": {
+			"iRent-prod": {
+				"title": "生产环境",
+				"env": {
+					"UNI_PLATFORM": "mp-weixin"
+				},
+				"define": {
+					"IRENT-PROD": true
+				}
+			},
+			"iRent-dev": {
+				"title": "开发环境",
+				"env": {
+					"UNI_PLATFORM": "mp-weixin"
+				},
+				"define": {
+					"IRENT-DEV": true
+				}
+			}
+		}
+	},
+	"dependencies": {
+		"uni-ui": "^1.0.0"
+	}
+}

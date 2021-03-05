@@ -1,0 +1,95 @@
+@import '@/common/css/variable.scss';
+
+.url-link {
+	color: #128DEB;
+	font-size: 28rpx;
+	text-decoration: underline;
+}
+.red-tips {
+  font-size: 24rpx;
+  color: #F24246;
+  display: block;
+}
+.page-container {
+	position: relative;
+	background-color: #F5F5F5;
+	height: 100%;
+}
+.page-top-bg {
+	height: 380rpx;
+	width: 100%;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.shadow-box {
+	background: #FFFFFF;
+	box-shadow: 0 4rpx 14rpx 0 rgba(0, 0, 0, 0.08);
+	border-radius: 10rpx;
+}
+.main-button {
+	width: 100%;
+	height: 88rpx;
+	line-height: 88rpx;
+	background-color: $main-color;
+	border-radius: 10rpx;
+	color: white;
+	font-size: 36rpx;
+	font-weight: 500;
+	border: none;
+	display: block;
+}
+button::after {
+	border: none;
+	border-radius: 0;
+}
+button {
+	background-color: $main-color;
+	color: #fff;
+}
+
+button[disabled] {
+	background: #D2D2D2 !important;
+	color: white !important;
+	border: none;
+	box-shadow: none;
+}
+
+.wh-captcha-normal {
+	background: #128DEB;
+	border: none;
+	color: white;
+	font-size: 24rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	width: 180rpx;
+	text-align: center;
+	border-radius: 4rpx;
+}
+
+.wh-captcha-disabled {
+	background: #C8C8C8;
+	border: none;
+	color: white;
+	font-size: 24rpx;
+	height: 60rpx;
+	line-height: 60rpx;
+	width: 180rpx;
+	text-align: center;
+	border-radius: 4rpx;
+}
+
+.main-color {
+	color: $main-color;
+}
+
+.fixed-line {
+	position: fixed;
+	height: 1px;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #F5F5F5;
+	z-index: 10;
+}
