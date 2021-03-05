@@ -5,7 +5,7 @@ import { clearToLogin } from "@/common/utils/page.js"
 
 export function request(url, data, method = "post", timeout = 30000) {
 	const requestUrl = base_url + url 
-	// #ifndef IRENT-PROD
+	// #ifndef SERVER-PROD
 	console.log("【请求开始】", requestUrl)
 	console.log("【请求参数】\n", data)
 	// #endif
@@ -25,7 +25,7 @@ export function request(url, data, method = "post", timeout = 30000) {
 			success: (res) => {
 				const { data, statusCode, header } = res
 				
-				// #ifndef IRENT-PROD
+				// #ifndef SERVER-PROD
 				console.log("【请求结束】", requestUrl)
 				console.log("【响应数据】\n", data)
 				// #endif
@@ -54,7 +54,7 @@ export function request(url, data, method = "post", timeout = 30000) {
 				}
 			},
 			fail: (err) => {
-				// #ifndef IRENT-PROD
+				// #ifndef SERVER-PROD
 				console.log("【请求结束】", requestUrl)
 				console.log("【响应错误】\n", err)
 				// #endif
@@ -86,7 +86,7 @@ export function uploadFile(url, filePath, name = 'file', formData = null) {
 // 上传文件，回调，用于上传图片组件
 export function uploadFileCallBack(params) {
 	const requestUrl = base_url + params.url 
-	// #ifndef IRENT-PROD
+	// #ifndef SERVER-PROD
 	console.log("【请求开始】", requestUrl)
 	console.log("filePath =", params.filePath)
 	// #endif
@@ -104,7 +104,7 @@ export function uploadFileCallBack(params) {
 	formData["empNo"] = empNo
 	formData["partyCode"] = empNo
 	
-	// #ifndef IRENT-PROD
+	// #ifndef SERVER-PROD
 	console.log("formData =", formData)
 	// #endif
 
@@ -117,7 +117,7 @@ export function uploadFileCallBack(params) {
 		success(res) {
 			const { data, statusCode } = res
 			
-			// #ifndef IRENT-PROD
+			// #ifndef SERVER-PROD
 			console.log("【请求结束】", requestUrl)
 			console.log("【响应数据】\n", data)
 			// #endif
@@ -125,7 +125,7 @@ export function uploadFileCallBack(params) {
 			if (statusCode >= 200 && statusCode < 300 && data != null) {
 				const response = JSON.parse(data)
 				
-				// #ifndef IRENT-PROD
+				// #ifndef SERVER-PROD
 				console.log("【响应JSON数据】\n", response)
 				// #endif
 				
@@ -153,7 +153,7 @@ export function uploadFileCallBack(params) {
 			}
 		},
 		fail(err) {
-			// #ifndef IRENT-PROD
+			// #ifndef SERVER-PROD
 			console.log("【请求结束】", requestUrl)
 			console.log("【响应错误】\n", err)
 			// #endif
