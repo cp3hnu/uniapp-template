@@ -1,7 +1,7 @@
-import store from '@/common/store/index.js'
-import { kToken, kLoginUrls } from '@/common/constant/constant.js'
-import { base_url } from '@/common/config/config.js'
-import { clearToLogin } from "@/common/utils/page.js"
+import store from '@/store/index.js'
+import { kToken, kLoginUrls } from '@/constant/constant.js'
+import { base_url } from '@/config/config.js'
+import { clearToLogin } from "@/utils/page.js"
 
 export function request(url, data, method = "post", timeout = 30000) {
 	const requestUrl = base_url + url 

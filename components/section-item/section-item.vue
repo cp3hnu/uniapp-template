@@ -1,7 +1,7 @@
 <template>
-	<view class="section-item-container" :style="{ marginLeft: $addUnit(left), marginTop: $addUnit(top) }">
-		<view class="section-item-block"></view>
-		<view class="section-item-title">{{ title }}</view>
+	<view class="section-item__container" :style="{ marginLeft: $addUnit(left), marginTop: $addUnit(top) }">
+		<view class="section-item__block"></view>
+		<view class="section-item__title">{{ title }}</view>
 	</view>
 </template>
 
@@ -30,16 +30,16 @@
 </script>
 
 <style lang="scss">
-	.section-item-container {
+	.section-item__container {
 		display: flex;
 		align-items: center;
 	}
-	.section-item-block {
+	.section-item__block {
 		width: 4rpx;
 		height: 28rpx;
 		background-color: #3452A6;
 	}
-	.section-item-title {
+	.section-item__title {
 		font-size: 30rpx;
 		color: #5A5A5A;
 		margin-left: 16rpx;

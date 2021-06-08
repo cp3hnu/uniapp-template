@@ -1,25 +1,25 @@
 <template>
 	<uni-popup ref="popup" type="center" :maskClick="false">
-		<view class="dialog-view-container">
-			<view v-if="showClose" class="dialog-view-close" @click="closeAction">
+		<view class="dialog-view__container">
+			<view v-if="showClose" class="dialog-view__close" @click="closeAction">
 				<cmd-icon type="close" size="24" color="#BFBFBF"></cmd-icon>
 			</view>
-			<view class="dialog-view-content-container">
-				<view class="dialog-view-title" :style="{color: titleColor}">{{ title }}</view>
-				<view class="line"></view>
-				<view class="dialog-view-content">
+			<view class="dialog-view__content-container">
+				<view class="dialog-view__title" :style="{ color: titleColor }">{{ title }}</view>
+				<view class="dialog-view__separator"></view>
+				<view class="dialog-view__content">
 					<slot name="content">
 						<text :style="{color: contentColor}">{{ content }}</text>
 					</slot>
 				</view>
 			</view>
 			<slot name="button">
-				<view class="dialog-view-button-container">
-					<button v-if="showCancel" class="dialog-view-button dialog-view-cancel-button" :style="{ color: cancelColor, backgroundColor: cancelBackgroundColor }"
+				<view class="dialog-view__button-container">
+					<button v-if="showCancel" class="dialog-view__button dialog-view__cancel-button" :style="{ color: cancelColor, backgroundColor: cancelBackgroundColor }"
 					 @click="cancelAction">
 						{{ cancelText }}
 					</button>
-					<button class="dialog-view-button dialog-view-confirm-button" :style="{ color: confirmColor, backgroundColor: confirmBackgroundColor }"
+					<button class="dialog-view__button dialog-view__confirm-button" :style="{ color: confirmColor, backgroundColor: confirmBackgroundColor }"
 					 @click="confirmAction" :disabled="confirmDisabled">
 						{{ confirmText }}
 					</button>
@@ -32,7 +32,7 @@
 <script>
 	import cmdIcon from '@/components/cmd-icon/cmd-icon.vue'
 	import uniPopup from "@/components/uni-popup/uni-popup.vue"
-	import { kCancelTextColor, kMainTextColor } from "@/common/constant/constant"
+	import { kCancelTextColor, kMainTextColor } from "@/constant/constant"
 	
 	export default {
 		name: "DialogView",
@@ -126,7 +126,7 @@
 </script>
 
 <style lang="scss">
-	.dialog-view-container {
+	.dialog-view__container {
 		width: 588rpx;
 		background-color: white;
 		border-radius: 10rpx;
@@ -135,11 +135,11 @@
 		overflow: hidden;
 	}
 
-	.dialog-view-content-container {
+	.dialog-view__content-container {
 		padding: 0 40rpx;
 	}
 
-	.dialog-view-close {
+	.dialog-view__close {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -148,19 +148,19 @@
 		text-align: center;
 	}
 
-	.dialog-view-title {
+	.dialog-view__title {
 		text-align: center;
 		font-size: 34rpx;
 		font-weight: bold;
 	}
 	
-	.line {
+	.dialog-view__separator {
 		margin: 30rpx -40rpx 0;
 		background-color: #DFE1E2;
 		height: 1px;
 	}
 
-	.dialog-view-content {
+	.dialog-view__content {
 		margin-top: 30rpx;
 		margin-bottom: 40rpx;
 		text-align: center;
@@ -168,11 +168,11 @@
 		color: #000000;
 	}
 
-	.dialog-view-button-container {
+	.dialog-view__button-container {
 		display: flex;
 		border-top: 2rpx solid #EEEEEE;
 
-		.dialog-view-button {
+		.dialog-view__button {
 			height: 88rpx;
 			line-height: 88rpx;
 			flex: 1;
@@ -184,7 +184,7 @@
 		}
 	}
 
-	.dialog-view-button:nth-child(2) {
+	.dialog-view__button:nth-child(2) {
 		border-left: 2rpx solid #EEEEEE;
 	}
 </style>

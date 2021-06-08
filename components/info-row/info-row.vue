@@ -1,10 +1,10 @@
 <template>
-	<view class="info-row-container" :style="{ alignItems: align }" @click="click">
-		<text :style="{ fontSize: titleSize + 'rpx', color: titleColor, width: titleWidth + 'rpx' }" class="info-row-title">{{ title }}</text>
+	<view class="info-row__container" :style="{ alignItems: flexAlign }" @click="click">
+		<text :style="{ fontSize: titleSize + 'rpx', color: titleColor, width: titleWidth + 'rpx' }" class="info-row__title">{{ title }}</text>
 		<slot name="detail">
-			<text :style="{ fontSize: detailSize + 'rpx', color: detailColor, textAlign: detailAlign }" class="info-row-detail">{{ detail }}</text>
+			<text :style="{ fontSize: detailSize + 'rpx', color: detailColor, textAlign: detailAlign }" class="info-row__detail">{{ detail }}</text>
 		</slot>
-		<cmd-icon v-if="arrow" class="indicator-arrow" type="chevron-right" size="40" color="#C5CAD5"></cmd-icon>
+		<cmd-icon v-if="arrow" class="info-row__arrow" type="chevron-right" size="40" color="#C5CAD5"></cmd-icon>
 	</view>
 </template>
 
@@ -49,7 +49,7 @@
 				type: String,
 				default: "right"
 			},
-			align: {
+			flexAlign: {
 				type: String,
 				default: "center"
 			}
@@ -63,20 +63,20 @@
 </script>
 
 <style lang="scss">
-	.info-row-container {
+	.info-row__container {
 		display: flex;
 		font-size: 28rpx;
 		color: #000000;
 	}
-	.indicator-arrow {
+	.info-row__arrow {
 		margin-left: auto;
 		margin-right: -12rpx;
 	}
-	.info-row-title {
+	.info-row__title {
 		 flex: 0 0 auto;
 		 margin-right: 20rpx;
 	}
-	.info-row-detail {
+	.info-row__detail {
 		flex: 1;
 		word-break: break-all;
 	}

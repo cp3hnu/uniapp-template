@@ -1,20 +1,20 @@
 <template>
 	<view>
-		<view class="input-row-container">
-			<view class="input-row-content">
+		<view class="input-row__container">
+			<view class="input-row__content">
 				<slot name="icon">
-					<image v-if="titleIcon" class="input-row-title-icon" :src="titleIcon"  mode="aspectFit"/>
+					<image v-if="icon" class="input-row__icon" :src="icon"  mode="aspectFit"/>
 				</slot>
-				<view v-if="title" class="input-row-title" :style="{ width : titleWidth + 'rpx' }">
+				<view v-if="title" class="input-row__title" :style="{ width : titleWidth + 'rpx' }">
 					<text v-if="required" style="color: #FF4545;"> * </text>
 					<text>{{ title }}</text>
 				</view>
-				<view class="input-row-input">
+				<view class="input-row__input">
 					<textarea v-if="textarea && isTextareaVisible"
-						:class="className" 
-						:style="{ textAlign: inputAlign }"  
-						:disabled="disabled" 
-						:placeholder="placeholder" 
+						:class="className"
+						:style="{ textAlign: inputAlign }"
+						:disabled="disabled"
+						:placeholder="placeholder"
 						:placeholder-style="placeholderStyle"
 						:value="value"
 						@input="onInput"
@@ -25,11 +25,11 @@
 					</textarea>
 					<view :class="className" v-else-if="textarea && !isTextareaVisible" :style="{ textAlign: inputAlign, flex: 1, lineHeight: '34rpx'}" >{{ value }}</view>
 					<input v-else
-						:class="className" 
-						:style="{ textAlign: inputAlign }" 
-						:type="type" 
-						:disabled="disabled" 
-						:placeholder="placeholder" 
+						:class="className"
+						:style="{ textAlign: inputAlign }"
+						:type="type"
+						:disabled="disabled"
+						:placeholder="placeholder"
 						:placeholder-style="placeholderStyle"
 						:value="value"
 						@input="onInput"
@@ -48,7 +48,7 @@
 				<cmd-icon v-if="arrow" class="arrow" type="chevron-right" size="48" color="#C5CAD5"></cmd-icon>
 			</slot>
 		</view>
-		<view v-if="separator" class="input-row-line"></view>
+		<view v-if="separator" class="input-row__separator"></view>
 	</view>
 	
 </template>
@@ -87,7 +87,7 @@
 				type: String,
 				default: "text"
 			},
-			titleIcon: {
+			icon: {
 				type: String,
 				default: ""
 			},
@@ -138,7 +138,7 @@
 		},
 		computed: {
 			className() {
-				return this.disabled ? 'input-disabled-class' : 'input-normal-class'
+				return this.disabled ? 'input-disabled__class' : 'input-normal__class'
 			},
 			showClear() {
 				const show = this.value != null && this.value != '' && this.focused && !this.disabled && this.clearable
@@ -196,7 +196,7 @@
 </script>
 
 <style lang="scss">
-	.input-row-container {
+	.input-row__container {
 		padding: 26rpx 30rpx;
 		display: flex;
 		flex-direction: row;
@@ -206,59 +206,61 @@
 		box-sizing: border-box;
 		min-height: 100rpx;
 	}
-	.input-row-content {
+	.input-row__content {
 		display: flex;
 		align-items: center;
 		flex: 1;
 		flex-direction: row;
 	}
-	.input-row-title {
+	.input-row__title {
 		font-size: 28rpx;
 		font-weight: Medium;
 		color: #101010;
 	}
-	.input-row-title-icon {
+	.input-row__icon {
 		width: 36rpx;
 		height: 36rpx;
 		margin-right: 20rpx;
 	}
-	.input-row-input {
+	.input-row__input {
 		color: #010101;
 		font-size: 28rpx;
 		font-weight: Medium;
 		flex: 1;
 		display: flex;
 		align-items: center;
+		
+		& input {
+			flex: 1;
+			z-index: 0;
+		}
+		& textarea {
+			flex: 1;
+			width: 100%;
+			z-index: 0;
+		}
 	}
-	.input-row-input input {
-		flex: 1;
-		z-index: 0;
-	}
-	.input-row-input textarea {
-		flex: 1;
-		width: 100%;
-		z-index: 0;
-	}
-	.input-normal-class {
+	.input-normal__class {
 		color: #000000;
 		font-size: 28rpx;
 		box-sizing: border-box;
 	}
+	// iOS H5 disabled 看不清
 	/* #ifndef MP-WEIXIN */
-	.input-disabled-class {
+	.input-disabled__class {
 		color: #555555;
 		font-size: 28rpx;
 		box-sizing: border-box;
 	}
 	/* #endif */
 	/* #ifdef MP-WEIXIN */
-	.input-disabled-class {
+	.input-disabled__class {
 		color: #999999;
 		font-size: 28rpx;
 		box-sizing: border-box;
 	}
 	/* #endif */
-	.input-row-line {
+	.input-row__separator {
 		height: 2rpx;
 		background-color: #EEEEEE;
 	}

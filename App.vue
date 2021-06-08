@@ -1,5 +1,5 @@
 <script>
-	import { kToken, kPhone, kAuthType, kPerson } from '@/common/constant/constant.js'
+	import { kToken, kPhone, kAuthType, kPerson } from '@/constant/constant.js'
 	
 	export default {
 		globalData: {
@@ -24,8 +24,8 @@
 </script>
 
 <style lang="scss">
-	@import '@/common/css/uni.css';
-	@import '@/common/css/index.scss';
+	@import '@/styles/uni.css';
+	@import '@/styles/index.scss';
 
 	uni-page-body,
 	page {

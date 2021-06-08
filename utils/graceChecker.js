@@ -4,7 +4,7 @@
 作者 hcoder 深海
 */
 
-import { isNumber, isInputNumber } from './verification.js'
+import { isNumber, isInputNumber } from './validate.js'
 
 const checks = {
 	error: '',

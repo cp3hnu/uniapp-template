@@ -1,5 +1,5 @@
-import { myBankCardListReq } from '@/common/api/api.js'
-import { kBindCardEvent } from '@/common/constant/constant.js'
+import { myBankCardListReq } from '@/api/api.js'
+import { kBindCardEvent } from '@/constant/constant.js'
 
 const selectCardMixin = {
 	data() {

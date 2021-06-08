@@ -16,7 +16,7 @@
 
 <script>
 	import dialogView from "@/components/dialog-view/dialog-view.vue"
-	import { kMainColor } from "@/common/constant/constant.js"
+	import { kMainColor } from "@/constant/constant.js"
 	export default {
 		components: { dialogView },
 		data() {

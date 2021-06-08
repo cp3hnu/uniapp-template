@@ -1,20 +1,23 @@
 <template>
-	<view class="indicator-row-container" @click="click">
-		<view class="indicator-row-content">
+	<view class="indicator-row__container" @click="click">
+		<view class="indicator-row__content">
 			<slot name="icon">
-				<image v-if="titleIcon" class="indicator-row-title-icon" :src="titleIcon"  mode="aspectFit"/>
+				<image v-if="icon" class="indicator-row__icon" :src="icon"  mode="aspectFit"/>
 			</slot>
 			<slot name="title">
-				<view class="indicator-row-title" :style="{ width : titleWidth + 'rpx' }">{{ title }}</view>
+				<view class="indicator-row__title" :style="{ width : titleWidth + 'rpx' }">{{ title }}</view>
 			</slot>
-			<view class="indicator-row-value" :style="{ justifyContent: justifyContent }">
+			<view class="indicator-row__value" :style="{ justifyContent: justifyContent }">
 				<slot name="default">
 					<view>{{ value }}</view>
 				</slot>
+				<slot name="default">
+					<view v-if="placeholder !== '' && value === ''" class="indicator-row__placeholder">{{ placeholder }}</view>
+				</slot>
 			</view>
-			<cmd-icon v-if="arrow" class="indicator-row-arrow" type="chevron-right" size="40" color="#C5CAD5"></cmd-icon>
+			<cmd-icon v-if="arrow" class="indicator-row__arrow" type="chevron-right" size="40" color="#C5CAD5"></cmd-icon>
 		</view>
-		<view v-if="separator" class="indicator-row-line"></view>
+		<view v-if="separator" class="indicator-row__separator"></view>
 	</view>
 </template>
 
@@ -33,7 +36,7 @@
 				type: String,
 				default: ""
 			},
-			titleIcon: {
+			icon: {
 				type: String,
 				default: ""
 			},
@@ -47,7 +50,11 @@
 			},
 			valueAlign: {
 				type: String,
-				default: "right"
+				default: "right" // left | right
+			},
+			placeholder: {
+				type: String,
+				default: ""
 			},
 			arrow: {
 				type: Boolean,
@@ -72,39 +79,46 @@
 </script>
 
 <style lang="scss">
-	.indicator-row-container {
+	.indicator-row__container {
 		background-color: white;
 	}
-	.indicator-row-content {
+	.indicator-row__content {
 		display: flex;
 		box-sizing: border-box;
 		padding: 26rpx 30rpx;
 		align-items: center;
 		min-height: 100rpx;
 	}
-	.indicator-row-title-icon {
+	.indicator-row__icon {
 		width: 36rpx;
 		height: 36rpx;
 		margin-right: 20rpx;
 	}
-	.indicator-row-title {
+	.indicator-row__title {
 		font-size: 28rpx;
 		font-weight: Medium;
 		color: #101010;
 	}
-	.indicator-row-value {
+	.indicator-row__value {
 		flex: 1;
 		font-size: 28rpx;
-		color: #333333;
+		color: #333;
 		margin-right: 12rpx;
 		display: flex;
 	}
-	.indicator-row-arrow {
+	.indicator-row__arrow {
 		margin-left: auto;
 		margin-right: -12rpx;
 	}
-	.indicator-row-line {
+	.indicator-row__separator {
 		height: 2rpx;
-		background-color: #EEEEEE;
+		background-color: #eee;
+	}
+	.indicator-row__placeholder {
+		flex: 1;
+		font-size: 28rpx;
+		color: #999;
+		margin-right: 12rpx;
+		display: flex;
 	}
 </style>

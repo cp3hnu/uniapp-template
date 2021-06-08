@@ -1,5 +1,5 @@
 // 数据格式化，数据转换
-import { isNumber } from "./verification.js"
+import { isNumber } from "./validate.js"
 
 // 千位逗号分隔, 保留两位小数
 export function fmoney(value, cent = false) {

@@ -200,7 +200,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "@/common/css/style.components.scss";
 .u-circle-progress {
 	position: relative;
 	/* #ifndef APP-NVUE */

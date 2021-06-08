@@ -1,5 +1,5 @@
 // 页面相关的
-import { kToken, kPhone, kLogoutEvent } from '@/common/constant/constant.js'
+import { kToken, kPhone, kLogoutEvent } from '@/constant/constant.js'
 
 
 export function showLoading(title = "加载中") {

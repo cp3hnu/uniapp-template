@@ -24,7 +24,7 @@
 		& > view {
 			position: absolute;
 			top: 50%;
-			left:50%;
+			left: 50%;
 			transform: translate3d(-50%,-50%,0);
 			& > view {
 				width: 220rpx;
@@ -41,7 +41,7 @@
 			& > text {
 				padding: 25rpx 0;
 				font-size: 30rpx;
-				color:#ACAFB2;
+				color: #ACAFB2;
 				white-space: nowrap;
 				position: relative;
 				display: block;
